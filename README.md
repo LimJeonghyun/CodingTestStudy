@@ -1,6 +1,6 @@
 ## 2022_CodingTest
 
-### Promming Language : Python or C++
+### Promming Language : Python / C++
 
 ### SQL
 
