@@ -1,5 +1,7 @@
 ## 2022_CodingTest
 
+### Promming Language : Python or C++
+
 ### SQL
 
 #### SQL Basic Grammery
