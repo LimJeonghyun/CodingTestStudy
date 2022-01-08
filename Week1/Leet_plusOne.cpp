@@ -1,31 +1,12 @@
+// python : 16ms C++ : 4ms
+// vector안에서 해결할 수 있는거는 vector안에서 해결해보자!!
+// 다양하게 접근하자
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 using namespace std;
-
-// class Solution {
-// public:
-//     vector<int> plusOne(vector<int>& digits) {
-//         int num;
-//         int decimal=1;
-
-//         for(int i=digits.size()-1; i<=0; i--){
-//             num = digits[i]*decimal;
-//             decimal=decimal*10;
-//         }
-//         int count=digits.size()-1;
-//         list<int> result(count);
-//         num+=1;
-//         decimal=10;
-
-//         for(int i=0; i<digits.size()-1; i++){
-//             result.push_back(num%decimal);
-//             num = num/decimal;
-//             decimal=decimal*10;
-//         }
-//     }
-// };
 
 int main(){
     vector<int> digits;
@@ -42,24 +23,24 @@ int main(){
     digits.push_back(1);
     digits.push_back(0);
 
-    int decimal = 1;
-    string num;
-    int p;
-    //reverse(digits.begin(), digits.end());
+    int test = 0;
+    // 199 -> 9 9 9 0 0 0 1
+    reverse(digits.begin(), digits.end());
     for(int i = 0 ; i < digits.size(); i++){
-        num = num + to_string(digits[i]);
+        if(digits[i]+1 > 9){
+            test = 1;
+            digits[i] = 0;
+        }
+        else{
+            test = 0;
+            digits[i]++;
+            break;
+        }
     }
-    cout << num << ":" << endl;
-    p = stol(num);
-    p = p+1;
-    cout << p << endl;
-    tmp = to_string(p);
-    // cout << p;
-    for(int i = 0; i<tmp.length(); i++){
-        result.push_back(tmp[i]-'0');
-    }
-    for(int k = 0; k < result.size(); k++){
-        cout << result[k] << endl;
+    if (test) digits.push_back(1);
+    reverse(digits.begin(), digits.end());
+    for(int i = 0; i<digits.size(); i++){
+        cout << digits[i];
     }
     return 0;
 }
