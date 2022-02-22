@@ -40,9 +40,6 @@ https://programmers.co.kr/
 
 https://www.codeground.org/
 
-##### Coding Test Problems
-
-https://hisnet.handong.edu/myboard/read.php?id=29320&Page=1&Board=B0029&FindIt=subject&FindText=%C4%DA%B5%F9%C5%D7%BD%BA%C6%AE
 
 #### Recommend Baekjoon Problems
 
