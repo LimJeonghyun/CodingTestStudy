@@ -1,3 +1,4 @@
+// python : 16ms c++ :8ms
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,10 +15,10 @@ int main(){
         else if(s[i]=='L') l++;
         if(s[i] != 'L') l=0;
         if(a>=2 || l>=3){ 
-            cout << "false";
+            cout << "false"; // return false;
             break;
         }
     }
-    cout << "true";
+    cout << "true"; // return ture;
     return 0;
 }
