@@ -28,10 +28,14 @@ int solution(int n, vector<vector<int>> costs)
 
     sort(costs.begin(), costs.end(), cmp);
 
+    // for (int i = 0; i < costs.size(); i++)
+    //     cout << costs[i][0] << '\t' << costs[i][1] << '\t' << costs[i][2] << endl;
+
     for (int i = 0; i < costs.size(); i++)
     {
         int start = findParent(costs[i][0]);
         int end = findParent(costs[i][1]);
+        cout << start << "\t" << end << endl;
         int cost = costs[i][2];
 
         if (start != end)
