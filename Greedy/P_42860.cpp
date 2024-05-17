@@ -8,55 +8,32 @@ using namespace std;
 int solution(string name)
 {
     int answer = 0;
-    string start_name = "";
-    for (int i = 0; i < name.length(); i++)
-        start_name += 'A';
+    int n = name.length();
+    int turn = n - 1;
 
-    int current_index = 0;
-    while (1)
+    for (int i = 0; i < n; i++)
     {
-        answer += min(name[current_index] - 'A', 'Z' - name[current_index] + 1);
-        start_name[current_index] = name[current_index];
-        if (start_name == name)
-            return answer;
-
-        int left_index = current_index;
-        int left_cnt = 0;
-        while (start_name[left_index] == name[left_index])
-        {
-            left_index--;
-            left_cnt++;
-            if (left_index == -1)
-                left_index = name.size() - 1;
-        }
-
-        int right_index = current_index;
-        int right_cnt = 0;
-        while (start_name[right_index] == name[right_index])
-        {
-            right_index++;
-            right_cnt++;
-            if (right_index == name.size())
-                right_index = 0;
-        }
-        if (left_cnt < right_cnt)
-        {
-            current_index = left_index;
-            answer += left_cnt;
-        }
+        if (name[i] - 'A' < 14)
+            answer += name[i] - 'A';
         else
-        {
-            current_index = right_index;
-            answer += right_cnt;
-        }
+            answer += 'Z' - name[i] + 1;
+
+        int index = i + 1;
+        while (index < n && name[index] == 'A')
+            index++;
+
+        int a = i;
+        int b = n - index;
+        turn = min(turn, min(a + 2 * b, 2 * a + b));
     }
+
+    answer += turn;
     return answer;
 }
 
 int main()
 {
     string name = "JEROEN";
-    // string name = "JEROEN";
     int result = solution(name);
 
     cout << result << '\n';
