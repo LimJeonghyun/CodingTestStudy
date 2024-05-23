@@ -4,10 +4,6 @@
 
 ### SQL
 
-#### SQL Basic Grammery
-
-https://wonit.tistory.com/448
-
 #### SQL Basic Coding Test Exercise
 
 https://sqlzoo.net/wiki/SQL_Tutorial
@@ -39,8 +35,3 @@ https://programmers.co.kr/
 #### codeGround
 
 https://www.codeground.org/
-
-
-#### Recommend Baekjoon Problems
-
-https://physicsmathcoumputer.tistory.com/27
