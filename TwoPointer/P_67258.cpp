@@ -6,66 +6,58 @@
 
 using namespace std;
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <set>
-
-using namespace std;
-
 vector<int> solution(vector<string> gems)
 {
     vector<int> answer;
 
     set<string> setGems(gems.begin(), gems.end());
     int size = setGems.size();
-
-    // cout << size << '\n';
-
+    unordered_map<string, int> shopping;
     int start = 0;
     int end = 0;
     int minStart = -1;
     int minEnd = -1;
-    set<string> shopping;
-    // shopping.insert(gems.at(start));
 
-    while (1)
+    for (auto &gem : gems)
     {
-        if (start >= gems.size() && end >= gems.size())
+        shopping[gem]++;
+        if (shopping.size() == size)
         {
             break;
         }
-        shopping.insert(gems.at(end));
-        if (shopping.size() == size)
+        end++;
+    }
+
+    minStart = start;
+    minEnd = end;
+
+    while (end < gems.size())
+    {
+        string key = gems.at(start);
+        shopping[key]--;
+        start++;
+
+        if (shopping[key] == 0)
         {
-            if (minStart >= 0 && minEnd >= 0)
+            end++;
+            for (; end < gems.size(); end++)
             {
-                if (minEnd - minStart > end - start)
+                shopping[gems.at(end)]++;
+                if (key == gems.at(end))
                 {
-                    minStart = start;
-                    minEnd = end;
+                    break;
                 }
             }
-            else
+            if (end == gems.size())
             {
-                minStart = start;
-                minEnd = end;
+                break;
             }
-            // cout << start << ' ' << end << '\n';
-            // for_each(shopping.begin(), shopping.end(), [](string n)
-            //          { cout << n << endl; });
-            shopping.clear();
-            start++;
-            end = start;
-            continue;
         }
-        end++;
-        if (end >= gems.size())
+        if (minEnd - minStart > end - start)
         {
-            start++;
-            end = start;
+            minEnd = end;
+            minStart = start;
         }
-        // cout << "**" << start << ' ' << end << '\n';
     }
 
     answer.push_back(minStart + 1);
@@ -79,7 +71,7 @@ int main()
     cout.tie(NULL);
     cin.tie(NULL);
 
-    vector<string> gems = {"ZZZ", "YYY", "NNNN", "YYY", "BBB"};
+    vector<string> gems = {"XYZ", "XYZ", "XYZ"};
 
     vector<int> answer = solution(gems);
 
