@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <math.h>
 
 using namespace std;
 
@@ -14,32 +16,37 @@ int main()
 
     int start = 1;
     int end = 1;
-    int result = 0;
+    vector<int> answer;
 
-    while (1)
+    while (end <= g)
     {
-        int num = (start * start) - (end * end);
-        if (num == g)
+        long long remember = pow(start, 2);
+        long long current = pow(end, 2);
+
+        if (current - remember == g)
         {
-            cout << start << '\n';
-            result++;
+            answer.push_back(end);
+            start++;
         }
-        if ((start - end) == 1 && num > g)
-        {
-            break;
-        }
-        else if (num > g)
+        if (current - remember < g)
         {
             end++;
         }
-        else
+        if (current - remember > g)
         {
             start++;
         }
     }
 
-    if (result == 0)
+    if (answer.size() <= 0)
     {
         cout << -1 << '\n';
+    }
+    else
+    {
+        for (int i = 0; i < answer.size(); i++)
+        {
+            cout << answer.at(i) << '\n';
+        }
     }
 }
