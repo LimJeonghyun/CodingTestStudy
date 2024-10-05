@@ -9,8 +9,8 @@ int N;                         // 도미노 개수
 
 int solution(vector<int> &A)
 {
-    int answer = 987654321;
     N = A.size() / 2;
+    int answer = N;
 
     for (int i = 0; i < A.size() - 1; i += 2)
     {
