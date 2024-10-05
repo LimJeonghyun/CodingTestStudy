@@ -55,16 +55,16 @@ int solution(vector<int> &A)
         }
         answer = min(answer, N - tmpResult);
     }
-
+    domino.clear();
     return answer;
 }
 
 int main()
 {
-    // vector<int> A = {2, 4, 1, 3, 4, 6, 2, 4, 1, 6};
-    // cout << solution(A) << endl; // 3 출력 기대
-    // vector<int> B = {1, 5, 3, 3, 1, 3};
-    // cout << solution(B) << endl; // 2 출력 기대
+    vector<int> A = {2, 4, 1, 3, 4, 6, 2, 4, 1, 6};
+    cout << solution(A) << endl; // 3 출력 기대
+    vector<int> B = {1, 5, 3, 3, 1, 3};
+    cout << solution(B) << endl; // 2 출력 기대
     vector<int> C = {5, 1, 2, 6, 6, 1, 3, 1, 4, 3, 4, 3, 4, 6, 1, 2, 4, 1, 6, 2};
     cout << solution(C) << endl; // 7출력 기대 - 8이 나옴
     return 0;
