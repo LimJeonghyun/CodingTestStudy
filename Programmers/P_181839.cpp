@@ -22,5 +22,3 @@ int solution(int a, int b)
 
     return answer;
 }
-
-// 12.26
